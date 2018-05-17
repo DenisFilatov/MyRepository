@@ -1,3 +1,17 @@
+.flex-container {
+ display: inline-flex;
+ justify-content: flex-start;
+ flex-wrap: wrap;
+}
+
 .TextStyle{
-  text-align: center;
+  border: 1px solid;
+  font: center;
+  width: 109px;
+}
+
+.mainimg{
+  padding: 5px 5px 5px 5px;
+  width: 250px;
+  height: 2500px;
 }

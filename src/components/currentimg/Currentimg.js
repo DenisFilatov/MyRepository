@@ -20,7 +20,7 @@ export default class Currentimg extends Component {
               });
             }}
           />
-          <p>{img.text}</p>
+          <p className="TextStyle">{img.text}</p>
         </div>
       </div>
     );

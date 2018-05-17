@@ -1,5 +1,11 @@
 .ImgStyle{
-  padding: 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
   width: 100px;
   height: 100px;
+}
+
+.TextStyle{
+  border: 1px solid;
+  font: center;
+  width: 109px;
 }

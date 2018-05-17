@@ -11,13 +11,21 @@ export default class Img extends Component {
     };
   }
 
+  CheckAllElem() {
+    let arr = [];
+    for (let i = 0; i < this.props.array.length; i++) {
+      if (this.props.array[i].flag) {
+        arr.push(<Currentimg imgState={this} img={this.props.array[i]} />);
+      }
+    }
+    return arr;
+  }
+
   render() {
     return (
       <div>
-        <div>
-          {this.props.array.map(item => (
-            <Currentimg imgState={this} img={item} />
-          ))}
+        <div className="flex-container">
+          {this.CheckAllElem()}
         </div>
         <div>
           <img src={this.state.urlCurrentImg} />
