@@ -1,39 +1,38 @@
 import React, { Component } from 'react';
 import './App.css';
-import Img  from './components/img/Img.js'
+import Img from './components/img/Img.js';
 
 class App extends Component {
   constructor() {
-      super();
-      this.state = {
-        array:[]
-      };
+    super();
+    this.state = {
+      array: []
+    };
   }
 
-  OutputAllImg(){
-    console.log(123);
-    return <Img array={this.state.array}/>
+  OutputAllImg() {
+    return <Img array={this.state.array}/>;
   }
 
-  AddImg()
-  {
-    return(
+  AddImg() {
+    return (
       <div>
-      <form onSubmit={e => {
-        //this.setState({array: this.state.array.concat({url: e.target.URL.value, text: e.target.Text.value})});
-        let array = [...this.state.array];
-        array.push({url: e.target.URL.value, text: e.target.Text.value});
-        this.setState({ array });
+        <form
+          onSubmit={e => {
+            let array = [...this.state.array];
+            array.push({ url: e.target.URL.value, text: e.target.Text.value });
+            this.setState({ array });
 
-        e.preventDefault();
-        }}>
-        <input name="URL"/>
-        <input name="Text"/>
-        <input type="submit" value="Submit" />
-      </form>
-      {this.OutputAllImg()}
+            e.preventDefault();
+          }}
+        >
+          <input name="URL" />
+          <input name="Text" />
+          <input type="submit" value="Submit" />
+        </form>
+        {this.OutputAllImg()}
       </div>
-    )
+    );
   }
 
   // OutputImg(obj)
@@ -56,12 +55,9 @@ class App extends Component {
   // }
 
   render() {
-    console.log("render");
-    return (
-      <div>{this.AddImg()}</div>
-    );
+    return <div>{this.AddImg()}</div>;
+
   }
 }
-
 
 export default App;

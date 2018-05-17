@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import './Img.css';
+import Currentimg from './../currentimg/Currentimg.js';
 
 export default class Img extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      urlCurrentImg: '',
+      textCurrentImg: ''
+    };
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        {this.props.array.map((item) => {
-         return(
-           <div>
-            <div><img className = "ImgStyle" src = {item.url}/></div>
-            <div>{item.text}</div>
-           </div>
-         )})}
+        <div>
+          {this.props.array.map(item => (
+            <Currentimg imgState={this} img={item} />
+          ))}
+        </div>
+        <div>
+          <img src={this.state.urlCurrentImg} />
+          <p>{this.state.textCurrentImg}</p>
+        </div>
       </div>
     );
   }
