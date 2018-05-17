@@ -38,9 +38,12 @@ class App extends Component {
     return (
       <div>
         <form>
-          <input name="Text" onChange={e=>{
-            this.setState({ findText: e.target.value });
-          }}/>
+          <input
+            name="Text"
+            onChange={e => {
+              this.setState({ findText: e.target.value });
+            }}
+          />
           <button
             type="button"
             onClick={e => {
@@ -48,6 +51,8 @@ class App extends Component {
               for (let i = 0; i < this.state.array.length; i++) {
                 if (array[i].text !== this.state.findText) {
                   array[i].flag = false;
+                } else {
+                  array[i].flag = true;
                 }
               }
               this.setState({ array });

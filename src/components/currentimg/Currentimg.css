@@ -1,11 +1,15 @@
-.ImgStyle{
-  padding: 5px 5px 5px 5px;
+.block{
   width: 100px;
-  height: 100px;
+  border: double black;
+  margin: 10px;
 }
 
-.TextStyle{
-  border: 1px solid;
-  font: center;
-  width: 109px;
+.block p{
+  text-align: center;
+}
+
+.block img{
+  border-bottom: double black;
+  height: 100px;
+  width: 100px;
 }

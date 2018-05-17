@@ -4,14 +4,18 @@
  flex-wrap: wrap;
 }
 
-.TextStyle{
-  border: 1px solid;
-  font: center;
-  width: 109px;
+.mainblock{
+  width: 250px;
+  border: double black;
+  margin: 10px;
 }
 
-.mainimg{
-  padding: 5px 5px 5px 5px;
+.mainblock p{
+  text-align: center;
+}
+
+.mainblock img{
+  border-bottom: double black;
+  height: 250px;
   width: 250px;
-  height: 2500px;
 }

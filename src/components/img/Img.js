@@ -21,16 +21,24 @@ export default class Img extends Component {
     return arr;
   }
 
-  render() {
-    return (
-      <div>
-        <div className="flex-container">
-          {this.CheckAllElem()}
-        </div>
-        <div>
+  ShowMainImg() {
+    if (this.state.urlCurrentImg == '' || this.state.textCurrentImg == '') {
+      return '';
+    } else {
+      return (
+        <div className="mainblock">
           <img src={this.state.urlCurrentImg} />
           <p>{this.state.textCurrentImg}</p>
         </div>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="flex-container">{this.CheckAllElem()}</div>
+        {this.ShowMainImg()}
       </div>
     );
   }
