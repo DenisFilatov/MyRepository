@@ -8,8 +8,25 @@
   text-align: center;
 }
 
-.block img{
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image1 {
+  position: relative;
   border-bottom: double black;
-  height: 100px;
   width: 100px;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
+
+.image2 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 3px;
+  top: 3px;
 }

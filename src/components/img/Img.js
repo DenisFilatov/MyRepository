@@ -13,9 +13,15 @@ export default class Img extends Component {
 
   CheckAllElem() {
     let arr = [];
-    for (let i = 0; i < this.props.array.length; i++) {
-      if (this.props.array[i].flag) {
-        arr.push(<Currentimg imgState={this} img={this.props.array[i]} />);
+    for (let i = 0; i < this.props.appState.state.array.length; i++) {
+      if (this.props.appState.state.array[i].flag) {
+        arr.push(
+          <Currentimg
+            imgState={this}
+            appState={this.props.appState}
+            imgIndex={i}
+          />
+        );
       }
     }
     return arr;

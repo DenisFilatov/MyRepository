@@ -86,7 +86,7 @@ class App extends Component {
           {this.AddImg()}
           {this.FindImg()}
         </div>
-        <Img array={this.state.array} />
+        <Img appState={this} />
       </div>
     );
   }
