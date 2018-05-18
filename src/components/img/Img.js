@@ -28,9 +28,7 @@ export default class Img extends Component {
   }
 
   ShowMainImg() {
-    if (this.state.urlCurrentImg == '' || this.state.textCurrentImg == '') {
-      return '';
-    } else {
+    if (this.state.urlCurrentImg != '') {
       return (
         <div className="mainblock">
           <img src={this.state.urlCurrentImg} />

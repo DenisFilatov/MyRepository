@@ -7,75 +7,87 @@ class App extends Component {
     super();
     this.state = {
       array: [],
+      urlImg: '',
+      textImg: '',
       findText: ''
     };
   }
 
   AddImg() {
     return (
-      <div>
-        <form
-          onSubmit={e => {
-            let array = [...this.state.array];
-            array.push({
-              url: e.target.URL.value,
-              text: e.target.Text.value,
-              flag: true
-            });
-            this.setState({ array });
-            e.preventDefault();
+      <form>
+        <input
+          name="Url"
+          onChange={e => {
+            this.setState({ urlImg: e.target.value });
+          }}
+        />
+        <input
+          name="Text"
+          onChange={e => {
+            this.setState({ textImg: e.target.value });
+          }}
+        />
+        <button
+          type="button"
+          onClick={e => {
+            if (this.state.urlImg != '') {
+              let array = [...this.state.array];
+              array.push({
+                url: this.state.urlImg,
+                text: this.state.textImg,
+                flag: true
+              });
+              this.setState({ array });
+            }
           }}
         >
-          <input name="URL" />
-          <input name="Text" />
-          <input type="submit" value="Add Img" />
-        </form>
-      </div>
+          Add Img
+        </button>
+      </form>
     );
   }
 
   FindImg() {
     return (
-      <div>
-        <form>
-          <input
-            name="Text"
-            onChange={e => {
-              this.setState({ findText: e.target.value });
-            }}
-          />
-          <button
-            type="button"
-            onClick={e => {
-              let array = [...this.state.array];
-              for (let i = 0; i < this.state.array.length; i++) {
-                if (array[i].text !== this.state.findText) {
-                  array[i].flag = false;
-                } else {
-                  array[i].flag = true;
-                }
+      <form>
+        <input
+          name="Text"
+          onChange={e => {
+            this.setState({ findText: e.target.value });
+          }}
+        />
+        <button
+          type="button"
+          onClick={e => {
+            let array = [...this.state.array];
+            for (let i = 0; i < this.state.array.length; i++) {
+              if (array[i].text !== this.state.findText) {
+                array[i].flag = false;
+              } else {
+                array[i].flag = true;
+              }
+            }
+            this.setState({ array });
+          }}
+        >
+          Find Img
+        </button>
+        <button
+          type="button"
+          onClick={e => {
+            let array = [...this.state.array];
+            for (let i = 0; i < this.state.array.length; i++) {
+              if (array[i].flag === false) {
+                array[i].flag = true;
               }
               this.setState({ array });
-            }}
-          >
-            Find Img
-          </button>
-          <button
-            type="button"
-            onClick={e => {
-              let array = [...this.state.array];
-              for (let i = 0; i < this.state.array.length; i++) {
-                if (array[i].flag === false) {
-                  array[i].flag = true;
-                }
-                this.setState({ array });
-              }
-            }}
-          >
-            Show All
-          </button>
-        </form>
-      </div>
+            }
+          }}
+        >
+          Show All
+        </button>
+      </form>
     );
   }
 
