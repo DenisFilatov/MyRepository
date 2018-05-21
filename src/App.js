@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getAppData } from './action';
+import { addAppData } from './action';
 import './App.css';
 import Img from './components/img/Img.js';
 import { get } from './utils/fetcher.js';
@@ -12,10 +17,14 @@ class App extends Component {
       textImg: '',
       findText: ''
     };
-    
-    get('mockapi/app.json').then(data => {
-      this.setState({ array: data });
-    });
+
+    // get('mockapi/app.json').then(data => {
+    //   this.setState({ array: data });
+    // });
+  }
+
+  componentDidMount() {
+    this.props.getAppData([]);
   }
 
   AddImg() {
@@ -44,6 +53,12 @@ class App extends Component {
                 flag: true
               });
               this.setState({ array });
+
+              this.props.addAppData({
+                url: this.state.urlImg,
+                text: this.state.textImg,
+                flag: true
+              });
             }
           }}
         >
@@ -102,6 +117,7 @@ class App extends Component {
         <div>
           {this.AddImg()}
           {this.FindImg()}
+          {console.log(this.props)}
         </div>
         <Img appState={this} />
       </div>
@@ -109,4 +125,15 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    data: state.appCompReducer.data
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  getAppData: bindActionCreators(getAppData, dispatch),
+  addAppData: bindActionCreators(addAppData, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
