@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Img from './components/img/Img.js';
+import { get } from './utils/fetcher.js';
 
 class App extends Component {
   constructor() {
@@ -11,6 +12,10 @@ class App extends Component {
       textImg: '',
       findText: ''
     };
+    
+    get('mockapi/app.json').then(data => {
+      this.setState({ array: data });
+    });
   }
 
   AddImg() {

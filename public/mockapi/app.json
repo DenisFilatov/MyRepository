@@ -1,19 +1,20 @@
-{
-  "images": [
-    {
-      "url":
-        "https://images.pexels.com/photos/247932/pexels-photo-247932.jpeg?auto=compress&cs=tinysrgb&h=350",
-      "text": "#1"
-    },
-    {
-      "url":
-        "https://wallpaperbrowse.com/media/images/3848765-wallpaper-images-download.jpg",
-      "text": "#2"
-    },
-    {
-      "url":
-        "https://wallpapers.pub/web/wallpapers/birds-water-spray-wallpaper/3840x2160.jpg",
-      "text": "#3"
-    }
-  ]
-}
+[
+  {
+    "url":
+      "https://images.pexels.com/photos/247932/pexels-photo-247932.jpeg?auto=compress&cs=tinysrgb&h=350",
+    "text": "#1",
+    "flag": true
+  },
+  {
+    "url":
+      "https://wallpaperbrowse.com/media/images/3848765-wallpaper-images-download.jpg",
+    "text": "#2",
+    "flag": true
+  },
+  {
+    "url":
+      "https://wallpapers.pub/web/wallpapers/birds-water-spray-wallpaper/3840x2160.jpg",
+    "text": "#3",
+    "flag": true
+  }
+]
