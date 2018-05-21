@@ -35,9 +35,9 @@ export default class Currentimg extends Component {
       </div>
     );
   }
-
-  // Currentimg.defaultProps = {
-  //   url: "http://www.ya.ru",
-  //   text: "yandex"
-  // }
 }
+
+// Currentimg.defaultProps = {
+//   url: "http://www.ya.ru",
+//   text: "yandex"
+// }

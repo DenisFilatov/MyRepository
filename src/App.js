@@ -31,7 +31,7 @@ class App extends Component {
         <button
           type="button"
           onClick={e => {
-            if (this.state.urlImg != '') {
+            if (this.state.urlImg) {
               let array = [...this.state.array];
               array.push({
                 url: this.state.urlImg,
