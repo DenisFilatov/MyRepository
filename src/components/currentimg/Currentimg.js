@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { delCurrentimgData } from './action';
 import './Currentimg.css';
 
-export default class Currentimg extends Component {
+class Currentimg extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    var img = this.props.appState.state.array[this.props.imgIndex];
+    var img = this.props.array[this.props.imgIndex];
     return (
       <div className="block">
         <div className="parent">
@@ -25,9 +29,8 @@ export default class Currentimg extends Component {
             className="image2"
             src="http://s1.iconbird.com/ico/0612/vistabasesoftwareicons/w256h2561339252558DeleteRed.png"
             onClick={e => {
-              let array = [...this.props.appState.state.array];
-              array.splice(this.props.imgIndex, 1);
-              this.props.appState.setState({ array: array });
+              console.log(this.props.array);
+              this.props.delCurrentimgData(this.props.imgIndex);
             }}
           />
         </div>
@@ -36,6 +39,18 @@ export default class Currentimg extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    array: state.appCompReducer.array
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  delCurrentimgData: bindActionCreators(delCurrentimgData, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Currentimg);
 
 // Currentimg.defaultProps = {
 //   url: "http://www.ya.ru",

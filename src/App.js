@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { setAppData } from './action';
 import { addAppData } from './action';
 import { changeFlagAppData } from './action';
+import { setFlagsTrueAppData } from './action';
 import './App.css';
 import Img from './components/img/Img.js';
 import { get } from './utils/fetcher.js';
@@ -13,7 +14,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      array: [],
       urlImg: '',
       textImg: '',
       findText: ''
@@ -47,14 +47,6 @@ class App extends Component {
           type="button"
           onClick={e => {
             if (this.state.urlImg) {
-              let array = [...this.state.array];
-              array.push({
-                url: this.state.urlImg,
-                text: this.state.textImg,
-                flag: true
-              });
-              this.setState({ array });
-
               this.props.addAppData({
                 url: this.state.urlImg,
                 text: this.state.textImg,
@@ -81,16 +73,6 @@ class App extends Component {
         <button
           type="button"
           onClick={e => {
-            let array = [...this.state.array];
-            for (let i = 0; i < this.state.array.length; i++) {
-              if (array[i].text !== this.state.findText) {
-                array[i].flag = false;
-              } else {
-                array[i].flag = true;
-              }
-            }
-            this.setState({ array });
-
             this.props.changeFlagAppData(this.state.findText);
           }}
         >
@@ -99,13 +81,7 @@ class App extends Component {
         <button
           type="button"
           onClick={e => {
-            let array = [...this.state.array];
-            for (let i = 0; i < this.state.array.length; i++) {
-              if (array[i].flag === false) {
-                array[i].flag = true;
-              }
-              this.setState({ array });
-            }
+            this.props.setFlagsTrueAppData();
           }}
         >
           Show All
@@ -122,7 +98,7 @@ class App extends Component {
           {this.FindImg()}
           {console.log(this.props.array)}
         </div>
-        <Img appState={this} />
+        <Img />
       </div>
     );
   }
@@ -137,7 +113,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   setAppData: bindActionCreators(setAppData, dispatch),
   addAppData: bindActionCreators(addAppData, dispatch),
-  changeFlagAppData: bindActionCreators(changeFlagAppData, dispatch)
+  changeFlagAppData: bindActionCreators(changeFlagAppData, dispatch),
+  setFlagsTrueAppData: bindActionCreators(setFlagsTrueAppData, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

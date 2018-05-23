@@ -16,15 +16,16 @@ class Img extends Component {
 
   CheckAllElem() {
     let arr = [];
-    for (let i = 0; i < this.props.array.length; i++) {
-      if (this.props.appState.state.array[i].flag) {
-        arr.push(
-          <Currentimg
-            imgState={this}
-            appState={this.props.appState}
-            imgIndex={i}
-          />
-        );
+    if (typeof this.props.array != 'undefined') {
+      for (let i = 0; i < this.props.array.length; i++) {
+        if (this.props.array[i].flag) {
+          arr.push(
+            <Currentimg
+              imgState={this}
+              imgIndex={i}
+            />
+          );
+        }
       }
     }
     return arr;
@@ -46,7 +47,6 @@ class Img extends Component {
       <div>
         <div className="flex-container">{this.CheckAllElem()}</div>
         {this.ShowMainImg()}
-        {console.log(this.props)}
       </div>
     );
   }

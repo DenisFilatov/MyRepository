@@ -41,3 +41,17 @@ export function ChangeFlagOnArray(array, text) {
   }
   return arr;
 }
+
+export function DelElemOnArray(array, index) {
+  let arr = [...array];
+  arr.splice(index, 1);
+  return arr;
+}
+
+export function SetFlagsTrueOnArray(array) {
+  let arr = [...array];
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].flag = true;
+  }
+  return arr;
+}
