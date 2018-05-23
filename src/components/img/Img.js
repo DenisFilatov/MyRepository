@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './Img.css';
 import Currentimg from './../currentimg/Currentimg.js';
 
@@ -23,6 +20,8 @@ class Img extends Component {
             <Currentimg
               imgState={this}
               imgIndex={i}
+              array={this.props.array}
+              functionOnClick={this.props.functionOnClick}
             />
           );
         }
@@ -52,15 +51,7 @@ class Img extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    array: state.appCompReducer.array
-  };
-};
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Img);
+export default Img;
 
 // Img.defaultProps = {
 //   url: "http://www.ya.ru",

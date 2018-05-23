@@ -18,7 +18,7 @@ class App extends Component {
       textImg: '',
       findText: ''
     };
-
+    this.DelElemOnArray = this.DelElemOnArray.bind(this);
     // get('mockapi/app.json').then(data => {
     //   this.setState({ array: data });
     // });
@@ -90,7 +90,18 @@ class App extends Component {
     );
   }
 
+  DelElemOnArray(index) {
+
+    console.log("index", index);
+    if (this.props.array) {
+      let arr = [...this.props.array];
+      arr.splice(index, 1);
+      this.props.setAppData(arr);
+    }
+  }
+
   render() {
+    //<Img array={this.props.array} functionOnClick={(item)=>{this.DelElemOnArray(item)}} />
     return (
       <div>
         <div>
@@ -98,7 +109,8 @@ class App extends Component {
           {this.FindImg()}
           {console.log(this.props.array)}
         </div>
-        <Img />
+
+        <Img array={this.props.array} functionOnClick={this.DelElemOnArray} />
       </div>
     );
   }

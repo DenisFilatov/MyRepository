@@ -29,8 +29,7 @@ class Currentimg extends Component {
             className="image2"
             src="http://s1.iconbird.com/ico/0612/vistabasesoftwareicons/w256h2561339252558DeleteRed.png"
             onClick={e => {
-              console.log(this.props.array);
-              this.props.delCurrentimgData(this.props.imgIndex);
+              this.props.functionOnClick(this.props.imgIndex);
             }}
           />
         </div>
@@ -40,17 +39,7 @@ class Currentimg extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    array: state.appCompReducer.array
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  delCurrentimgData: bindActionCreators(delCurrentimgData, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Currentimg);
+export default Currentimg;
 
 // Currentimg.defaultProps = {
 //   url: "http://www.ya.ru",
