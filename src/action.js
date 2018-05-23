@@ -1,16 +1,24 @@
 import { SET_APP_DATA } from './utils/actionTypes';
 import { ADD_APP_DATA } from './utils/actionTypes';
+import { CHANGE_FLAG_APP_DATA } from './utils/actionTypes';
 
-export function getAppData(data) {
+export function setAppData(array) {
   return {
     type: SET_APP_DATA,
-    payload: data
+    payload: array
   };
 }
 
-export function addAppData(data) {
+export function addAppData(obj) {
   return {
     type: ADD_APP_DATA,
-    payload: data
+    payload: obj
+  };
+}
+
+export function changeFlagAppData(text) {
+  return {
+    type: CHANGE_FLAG_APP_DATA,
+    payload: text
   };
 }

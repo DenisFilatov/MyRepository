@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './Img.css';
 import Currentimg from './../currentimg/Currentimg.js';
 
-export default class Img extends Component {
+class Img extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +16,7 @@ export default class Img extends Component {
 
   CheckAllElem() {
     let arr = [];
-    for (let i = 0; i < this.props.appState.state.array.length; i++) {
+    for (let i = 0; i < this.props.array.length; i++) {
       if (this.props.appState.state.array[i].flag) {
         arr.push(
           <Currentimg
@@ -43,10 +46,21 @@ export default class Img extends Component {
       <div>
         <div className="flex-container">{this.CheckAllElem()}</div>
         {this.ShowMainImg()}
+        {console.log(this.props)}
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    array: state.appCompReducer.array
+  };
+};
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Img);
 
 // Img.defaultProps = {
 //   url: "http://www.ya.ru",

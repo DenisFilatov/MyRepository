@@ -16,16 +16,28 @@ export function get(url) {
   return fetch(url, {
     method: 'GET',
     headers: new Headers({
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     })
   })
-    .then((response) => checkStatus(response))
-    .then((json) => getResponseJson(json))
-    .then((data) => {
+    .then(response => checkStatus(response))
+    .then(json => getResponseJson(json))
+    .then(data => {
       return data;
     })
-    .catch((error) => {
+    .catch(error => {
       return error;
     });
+}
+
+export function ChangeFlagOnArray(array, text) {
+  let arr = [...array];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].text !== text) {
+      arr[i].flag = false;
+    } else {
+      arr[i].flag = true;
+    }
+  }
+  return arr;
 }

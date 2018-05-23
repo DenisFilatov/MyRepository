@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getAppData } from './action';
+import { setAppData } from './action';
 import { addAppData } from './action';
+import { changeFlagAppData } from './action';
 import './App.css';
 import Img from './components/img/Img.js';
 import { get } from './utils/fetcher.js';
@@ -24,7 +25,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.getAppData([]);
+    this.props.setAppData([]);
   }
 
   AddImg() {
@@ -89,6 +90,8 @@ class App extends Component {
               }
             }
             this.setState({ array });
+
+            this.props.changeFlagAppData(this.state.findText);
           }}
         >
           Find Img
@@ -117,7 +120,7 @@ class App extends Component {
         <div>
           {this.AddImg()}
           {this.FindImg()}
-          {console.log(this.props)}
+          {console.log(this.props.array)}
         </div>
         <Img appState={this} />
       </div>
@@ -127,13 +130,14 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    data: state.appCompReducer.data
+    array: state.appCompReducer.array
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  getAppData: bindActionCreators(getAppData, dispatch),
-  addAppData: bindActionCreators(addAppData, dispatch)
+  setAppData: bindActionCreators(setAppData, dispatch),
+  addAppData: bindActionCreators(addAppData, dispatch),
+  changeFlagAppData: bindActionCreators(changeFlagAppData, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
