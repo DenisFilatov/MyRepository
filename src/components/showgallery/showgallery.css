@@ -1,0 +1,48 @@
+.flex-container {
+ display: inline-flex;
+ flex-direction: row;
+ justify-content: center;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+
+.block {
+  width: 100px;
+  border: double black;
+  margin: 10px;
+}
+
+.block p {
+  text-align: center;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image1 {
+  position: relative;
+  border-bottom: double black;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
+
+.mainblock {
+  width: 250px;
+  border: double black;
+  margin: 10px;
+}
+
+.mainblock p {
+  text-align: center;
+}
+
+.mainblock img {
+  border-bottom: double black;
+  height: 250px;
+  width: 250px;
+}

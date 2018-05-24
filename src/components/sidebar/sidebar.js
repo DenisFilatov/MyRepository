@@ -9,7 +9,6 @@ class Sidebar extends Component {
   ToggleSidebar() {
     if (document.getElementById('sidebar') != null) {
       document.getElementById('sidebar').classList.toggle('active');
-      console.log('Click on button');
     }
   }
 
@@ -27,9 +26,27 @@ class Sidebar extends Component {
           <span />
         </div>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li
+            onClick={e => {
+              this.props.appState.setState({ numberButtonClick: 1 });
+            }}
+          >
+            Home
+          </li>
+          <li
+            onClick={e => {
+              this.props.appState.setState({ numberButtonClick: 2 });
+            }}
+          >
+            Edit Gallery
+          </li>
+          <li
+            onClick={e => {
+              this.props.appState.setState({ numberButtonClick: 3 });
+            }}
+          >
+            Select Images
+          </li>
         </ul>
       </div>
     );
