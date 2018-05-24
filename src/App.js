@@ -8,6 +8,7 @@ import { changeFlagAppData } from './action';
 import { setFlagsTrueAppData } from './action';
 import './App.css';
 import Img from './components/img/Img.js';
+import Sidebar from './components/sidebar/sidebar.js';
 import { get } from './utils/fetcher.js';
 
 class App extends Component {
@@ -18,14 +19,12 @@ class App extends Component {
       textImg: '',
       findText: ''
     };
-    this.DelElemOnArray = this.DelElemOnArray.bind(this);
-    // get('mockapi/app.json').then(data => {
-    //   this.setState({ array: data });
-    // });
   }
 
   componentDidMount() {
-    this.props.setAppData([]);
+    get('mockapi/app.json').then(data => {
+      this.props.setAppData(data);
+    });
   }
 
   AddImg() {
@@ -61,38 +60,37 @@ class App extends Component {
     );
   }
 
-  FindImg() {
-    return (
-      <form>
-        <input
-          name="Text"
-          onChange={e => {
-            this.setState({ findText: e.target.value });
-          }}
-        />
-        <button
-          type="button"
-          onClick={e => {
-            this.props.changeFlagAppData(this.state.findText);
-          }}
-        >
-          Find Img
-        </button>
-        <button
-          type="button"
-          onClick={e => {
-            this.props.setFlagsTrueAppData();
-          }}
-        >
-          Show All
-        </button>
-      </form>
-    );
-  }
+  // FindImg() {
+  //   return (
+  //     <form>
+  //       <input
+  //         name="Text"
+  //         onChange={e => {
+  //           this.setState({ findText: e.target.value });
+  //         }}
+  //       />
+  //       <button
+  //         type="button"
+  //         onClick={e => {
+  //           this.props.changeFlagAppData(this.state.findText);
+  //         }}
+  //       >
+  //         Find Img
+  //       </button>
+  //       <button
+  //         type="button"
+  //         onClick={e => {
+  //           this.props.setFlagsTrueAppData();
+  //         }}
+  //       >
+  //         Show All
+  //       </button>
+  //     </form>
+  //   );
+  // }
 
   DelElemOnArray(index) {
-
-    console.log("index", index);
+    console.log('index', index);
     if (this.props.array) {
       let arr = [...this.props.array];
       arr.splice(index, 1);
@@ -101,16 +99,17 @@ class App extends Component {
   }
 
   render() {
-    //<Img array={this.props.array} functionOnClick={(item)=>{this.DelElemOnArray(item)}} />
     return (
       <div>
+        <Sidebar />
         <div>
           {this.AddImg()}
-          {this.FindImg()}
           {console.log(this.props.array)}
         </div>
-
-        <Img array={this.props.array} functionOnClick={this.DelElemOnArray} />
+        <Img
+          array={this.props.array}
+          functionOnClick={index => this.DelElemOnArray(index)}
+        />
       </div>
     );
   }
