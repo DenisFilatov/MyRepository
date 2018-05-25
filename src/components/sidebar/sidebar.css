@@ -24,6 +24,13 @@
   border-bottom: 1px solid rgba(100, 100, 100, 0.3);
 }
 
+#sidebar ul li:hover {
+  list-style: none;
+  padding: 15px 10px;
+  border: double 1px red;
+  color: red;
+}
+
 #sidebar .toggle-btn {
   position: absolute;
   left: 230px;
