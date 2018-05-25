@@ -11,6 +11,7 @@ import Img from './components/img/Img.js';
 import Sidebar from './components/sidebar/sidebar.js';
 import ShowGallery from './components/showgallery/showgallery.js';
 import SelectImg from './components/selectimg/selectimg.js';
+import ShowGalleryOnKey from './components/showgallery-onkey/showgallery_onkey.js';
 import { get } from './utils/fetcher.js';
 
 class App extends Component {
@@ -147,6 +148,17 @@ class App extends Component {
                 this.SetFlagOnArray(index, flag)
               }
             />
+          </div>
+        </div>
+      );
+    }
+    if (index == 4) {
+      console.log('Clisk on Show Selected Pictures');
+      return (
+        <div>
+          <h1>Show Selected Pictures</h1>
+          <div className="imgs-onkey">
+            <ShowGalleryOnKey array={this.props.array} />
           </div>
         </div>
       );

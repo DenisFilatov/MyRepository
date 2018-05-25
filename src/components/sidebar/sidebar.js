@@ -47,6 +47,13 @@ class Sidebar extends Component {
           >
             Select Images
           </li>
+          <li
+            onClick={e => {
+              this.props.appState.setState({ numberButtonClick: 4 });
+            }}
+          >
+            Show Selected Pictures
+          </li>
         </ul>
       </div>
     );

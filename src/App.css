@@ -18,6 +18,13 @@
   z-index: 1;
 }
 
+.imgs-onkey{
+  position: absolute;
+  top: 90px;
+  left: 250px;
+  z-index: 1;
+}
+
 .add-menu{
   position: absolute;
   left: 100px;
