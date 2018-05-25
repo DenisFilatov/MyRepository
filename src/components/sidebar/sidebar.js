@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './sidebar.css';
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   ToggleSidebar() {
     if (document.getElementById('sidebar') != null) {
       document.getElementById('sidebar').classList.toggle('active');

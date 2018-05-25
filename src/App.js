@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setAppData } from './action';
@@ -110,8 +109,7 @@ class App extends Component {
   }
 
   Selection(index) {
-    if (index == 1) {
-      console.log('Clisk on Home');
+    if (index === 1) {
       return (
         <div>
           <h1>Image gallery</h1>
@@ -121,8 +119,7 @@ class App extends Component {
         </div>
       );
     }
-    if (index == 2) {
-      console.log('Clisk on Edit Gallery');
+    if (index === 2) {
       return (
         <div>
           <h1>Edit gallery</h1>
@@ -136,8 +133,7 @@ class App extends Component {
         </div>
       );
     }
-    if (index == 3) {
-      console.log('Clisk on Select Images');
+    if (index === 3) {
       return (
         <div>
           <h1>Select Images</h1>
@@ -152,8 +148,7 @@ class App extends Component {
         </div>
       );
     }
-    if (index == 4) {
-      console.log('Clisk on Show Selected Pictures');
+    if (index === 4) {
       return (
         <div>
           <h1>Show Selected Pictures</h1>

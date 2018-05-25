@@ -11,36 +11,35 @@ class ShowGallery extends Component {
   }
 
   OutputAllElem() {
-    let arr = [];
-    if (typeof this.props.array != 'undefined') {
-      for (let i = 0; i < this.props.array.length; i++) {
-        arr.push(
-          <div className="block">
+    if (this.props.array) {
+      return this.props.array.map((item, i, array) => {
+        return (
+          <div key={i + ' OutputAllElem'} className="block">
             <div className="parent">
               <img
                 className="image1"
-                src={this.props.array[i].url}
+                src={item.url}
+                alt={'...'}
                 onClick={() => {
                   this.setState({
-                    urlCurrentImg: this.props.array[i].url,
-                    textCurrentImg: this.props.array[i].text
+                    urlCurrentImg: item.url,
+                    textCurrentImg: item.text
                   });
                 }}
               />
             </div>
-            <p>{this.props.array[i].text}</p>
+            <p>{item.text}</p>
           </div>
         );
-      }
-    }
-    return arr;
+      });
+    } else return [];
   }
 
   ShowMainImg() {
-    if (this.state.urlCurrentImg != '') {
+    if (this.state.urlCurrentImg !== '') {
       return (
         <div className="mainblock">
-          <img src={this.state.urlCurrentImg} />
+          <img src={this.state.urlCurrentImg} alt={'...'} />
           <p>{this.state.textCurrentImg}</p>
         </div>
       );

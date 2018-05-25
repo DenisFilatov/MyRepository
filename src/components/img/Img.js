@@ -12,29 +12,28 @@ class Img extends Component {
   }
 
   CheckAllElem() {
-    let arr = [];
-    if (typeof this.props.array != 'undefined') {
-      for (let i = 0; i < this.props.array.length; i++) {
-        if (this.props.array[i].flag) {
-          arr.push(
+    if (this.props.array) {
+      return this.props.array.map((item, i, array) => {
+        if (item.flag) {
+          return (
             <Currentimg
+              key={i + 'CheckAllElem'}
               imgState={this}
               imgIndex={i}
               array={this.props.array}
               functionOnClick={this.props.functionOnClick}
             />
           );
-        }
-      }
-    }
-    return arr;
+        } else return undefined;
+      });
+    } else return [];
   }
 
   ShowMainImg() {
-    if (this.state.urlCurrentImg != '') {
+    if (this.state.urlCurrentImg !== '') {
       return (
         <div className="mainblock">
-          <img src={this.state.urlCurrentImg} />
+          <img src={this.state.urlCurrentImg} alt={'...'} />
           <p>{this.state.textCurrentImg}</p>
         </div>
       );
