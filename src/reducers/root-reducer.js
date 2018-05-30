@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-
 import appCompReducer from './../reducer';
 
 const appReducer = combineReducers({
-  appCompReducer
+	appCompReducer
 });
 
 export default (state = {}, action) => {
-  return appReducer(state, action);
-}
+	return appReducer(state, action);
+};
