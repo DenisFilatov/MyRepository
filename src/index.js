@@ -10,15 +10,21 @@ import App from './App';
 import EditGallery from './components/edit-gallery/edit-gallery';
 import SelectImages from './components/select-images/select-images';
 import ShowSelectedImages from './components/show-selected-images/show-selected-images';
+import { get } from './utils/fetcher.js';
+import { setAppData } from './action';
 
 const store = newStore();
 const history = createBrowserHistory();
+
+get('mockapi/app.json').then(data => {
+	store.dispatch(setAppData(data));
+});
 
 ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<div>
-				<Redirect from="/" to="/home" />
+				<Redirect from="/" to="/edit" />
 				<Route path="/home" component={App} />
 				<Route path="/edit" component={EditGallery} />
 				<Route path="/select" component={SelectImages} />

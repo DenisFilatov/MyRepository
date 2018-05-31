@@ -14,7 +14,8 @@ export default (state = {}, action) => {
 			};
 		}
 		case ADD_APP_DATA: {
-			let arr = [...state.array];
+			let arr = [];
+			if (state.array) arr = [...state.array];
 			arr.push(action.payload);
 			return {
 				...state,

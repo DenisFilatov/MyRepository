@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setAppData } from './action';
 import './App.css';
 import Sidebar from './components/sidebar/sidebar.js';
 import ShowGallery from './components/showgallery/showgallery.js';
-import { get } from './utils/fetcher.js';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
-	componentDidMount() {
-		get('mockapi/app.json').then(data => {
-			this.props.setAppData(data);
-		});
-	}
-
 	// FindImg() {
 	//   return (
 	//     <form>
@@ -45,16 +37,12 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="parent">
+			<div>
 				<div className="sidebar">
 					<Sidebar />
 				</div>
-				<div>
-					<h1>Image gallery</h1>
-					<div className="imgs">
-						<ShowGallery array={this.props.array} />
-					</div>
-				</div>
+				<h1 className="text-center m-2">Image gallery</h1>
+				<ShowGallery array={this.props.array} />
 			</div>
 		);
 	}
@@ -66,8 +54,4 @@ const mapStateToProps = state => {
 	};
 };
 
-const mapDispatchToProps = dispatch => ({
-	setAppData: bindActionCreators(setAppData, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);
