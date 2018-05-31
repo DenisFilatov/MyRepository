@@ -1,48 +1,15 @@
-.flex-container {
- display: inline-flex;
- flex-direction: row;
- justify-content: center;
- flex-wrap: wrap;
- justify-content: center;
+.img-square {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	right: 3px;
+	top: 3px;
 }
 
-.block {
-  width: 100px;
-  border: double black;
-  margin: 10px;
-}
-
-.block p {
-  text-align: center;
-}
-
-.parent {
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.image1 {
-  position: relative;
-  border-bottom: double black;
-  width: 100px;
-  height: 100px;
-  top: 0;
-  left: 0;
-}
-
-.image2 {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: 3px;
-  top: 3px;
-}
-
-.image3 {
-  position: absolute;
-  width: 23px;
-  height: 23px;
-  right: 4px;
-  top: 4px;
+.img-option {
+	position: absolute;
+	width: 23px;
+	height: 23px;
+	right: 4px;
+	top: 4px;
 }

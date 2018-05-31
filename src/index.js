@@ -24,7 +24,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<div>
-				<Redirect from="/" to="/edit" />
+				<Redirect from="/" to="/home" />
 				<Route path="/home" component={App} />
 				<Route path="/edit" component={EditGallery} />
 				<Route path="/select" component={SelectImages} />

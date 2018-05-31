@@ -7,13 +7,13 @@ import ShowGalleryOnKey from '../showgallery-onkey/showgallery_onkey';
 class ShowSelectedImages extends Component {
 	render() {
 		return (
-			<div className="parent">
+			<div>
 				<div className="sidebar">
 					<Sidebar />
 				</div>
 				<div>
-					<h1>Show Selected Pictures</h1>
-					<div className="imgs-onkey">
+					<h1 className="text-center m-2">Show Selected Pictures</h1>
+					<div className="offset-2">
 						<ShowGalleryOnKey array={this.props.array} />
 					</div>
 				</div>

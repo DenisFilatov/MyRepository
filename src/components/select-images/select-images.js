@@ -17,19 +17,15 @@ class SelectImages extends Component {
 
 	render() {
 		return (
-			<div className="parent">
+			<div>
 				<div className="sidebar">
 					<Sidebar />
 				</div>
-				<div>
-					<h1>Select Images</h1>
-					<div className="imgs">
-						<SelectImg
-							array={this.props.array}
-							FunctionSetFlagOnArray={(index, flag) => this.SetFlagOnArray(index, flag)}
-						/>
-					</div>
-				</div>
+				<h1 className="text-center m-2">Select Images</h1>
+				<SelectImg
+					array={this.props.array}
+					FunctionSetFlagOnArray={(index, flag) => this.SetFlagOnArray(index, flag)}
+				/>
 			</div>
 		);
 	}

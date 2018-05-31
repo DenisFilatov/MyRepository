@@ -12,7 +12,7 @@ class Img extends Component {
 						<div>
 							<img className="card-img-top" style={{ height: 150 }} src={url} alt={'...'} />
 							<img
-								className="img-main"
+								className="img-cross"
 								alt={'...'}
 								src="http://s1.iconbird.com/ico/0612/vistabasesoftwareicons/w256h2561339252558DeleteRed.png"
 								onClick={e => {
