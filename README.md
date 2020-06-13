@@ -1,2 +1,2 @@
 # image-gallery
-My first training project.
+My first tutorial web-project using ReactJS. Allows you to add pictures to your own gallery.
